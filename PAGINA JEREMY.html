@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario 64</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: linear-gradient(135deg, #f7f9fc, #add8e6, #ffa07a, #90ee90);
+            background-size: 300% 300%;
+            animation: gradient 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 6rem; 
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            animation: move 8s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes move {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        h1 span {
+            display: inline-block;
+        }
+
+        h1 .red { color: red; }
+        h1 .blue { color: blue; }
+        h1 .yellow { color: yellow; }
+        h1 .green { color: green; }
+
+        .button-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            width: 80%;
+        }
+
+        .button {
+            width: 200px;
+            height: 150px;
+            background: #ff6347;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 2px solid white;
+            position: relative;
+        }
+
+        .button:hover {
+            background: #ffa07a;
+            transform: scale(1.1);
+        }
+
+        .button:hover .menu {
+            visibility: visible;
+        }
+
+        .menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background: black;
+            color: white;
+            border-radius: 10px;
+            visibility: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            background: #333;
+        }
+
+        .decorative-image {
+            margin-top: 40px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #444;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Overlay for the Easter Egg effect */
+        #easter-egg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        #easter-egg-overlay img {
+            max-width: 50%;
+            margin-bottom: 20px;
+        }
+
+        #easter-egg-overlay button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #easter-egg-overlay button:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span class="red">S</span>
+        <span class="blue">U</span>
+        <span class="yellow">P</span>
+        <span class="green">E</span>
+        <span class="red">R</span>
+        &nbsp;
+        <span class="red">M</span>
+        <span class="blue">A</span>
+        <span class="yellow">R</span>
+        <span class="green">I</span>
+        <span class="red">O</span>
+        &nbsp;
+        <span class="blue">6</span>
+        <span class="yellow">4</span>
+    </h1>
+
+    <div class="button-container">
+        <div class="button">
+            Jugabilidad
+            <div class="menu">
+                <a href="Mundos.html">Mundos del Juego</a>
+            </div>
+        </div>
+        <div class="button">
+            Información
+            <div class="menu">
+                <a href="Informacion.html">Historia Básica</a>
+                <a href="https://mario.fandom.com/es/wiki/Super_Mario_64">Historia General</a>
+            </div>
+        </div>
+        <div class="button">
+            Museo
+            <div class="menu">
+                <a href="bandasonora.html">Banda Sonora</a>
+            </div>
+        </div>
+        <div class="button">
+            Juego Real
+            <div class="menu">
+                <a href="https://augustberchelmann.com/mario/">Jugar Ahora</a>
+            </div>
+        </div>
+        <div class="button">
+            Extras
+            <div class="menu">
+                <a href="https://vandal.elespanol.com/guias/guia-super-mario-64-trucos-consejos-y-secretos">Trucos</a>
+                <a href="#" onclick="triggerEasterEgg()">Easter Eggs</a>
+            </div>
+        </div>
+    </div>
+
+    <img src="dace1.gif" alt="Decorative Image" class="decorative-image">
+
+    <div id="easter-egg-overlay">
+        <img src="reed.jfif" alt="Bowser's Face">
+        <audio id="bowser-laugh" autoplay>
+            <source src="Super Mario 64 Bowser Laugh Death Green Screen Sound Effect Charles Martinet.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="restartPage()">.</button> <br>
+        <button onclick="playLaugh()">Inicio </button>
+    </div>
+    
+    <script>
+        function triggerEasterEgg() {
+            const overlay = document.getElementById('easter-egg-overlay');
+            overlay.style.display = 'flex';
+        }
+    
+        function restartPage() {
+            location.reload();
+        }
+    
+        function playLaugh() {
+            var audio = document.getElementById('bowser-laugh');
+            audio.play();
+        }
+    </script>
+    <footer>
+        © Copyright 2024 JECS - DSI - II CICLO - IESTP MAC
+    </footer>   
+</body>
+</html>
